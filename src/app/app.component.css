@@ -1,0 +1,20 @@
+* {
+    font-family: Helvetica, sans-serif;
+}
+
+#title {
+    border-top: 1px solid #2e7ac5;
+    border-bottom: 1px solid #2e7ac5;
+    color: #2e7ac5;
+    font-style: italic;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    text-align: center;
+    width: 40vw;
+}
+
+@media (max-width: 600px) {
+    #title {
+        width: 90vw;
+    }
+}

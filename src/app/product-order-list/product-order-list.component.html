@@ -1,0 +1,47 @@
+<div class="product-order-container">
+    <table class="order-table">
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th> </th>
+        </tr>
+        <tr *ngFor="let product of products; let i = index">
+            <td>
+                <select [(ngModel)]="product.name">
+                    <option value="">Choose Product</option>
+                    <option *ngFor="let item of productOptions">{{ item }}</option>
+                </select>
+            </td>
+            <td>
+                <select [(ngModel)]="product.quantity">
+                    <option value="">Choose Quantity</option>
+                    <option *ngFor="let qty of quantities">{{ qty }}</option>
+                </select>
+            </td>
+            <td>
+                <button (click)="addProduct(i)" class="add">ADD</button>
+            </td>
+        </tr>
+    </table>
+    <button (click)="showOrder()">Show Order</button>
+
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+    <div *ngIf="orderVisible">
+        <h3>Your Order:</h3>
+        <div class="order-list">
+            <p *ngIf="!orders.length">No Order</p>
+            <table class="order-table" *ngIf="orders.length">
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                </tr>
+                <tr *ngFor="let order of orders">
+                    <td>{{ order.name }}</td>
+                    <td>{{ order.quantity }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <button (click)="readOrder()">What is my Order?</button>
+    </div>
